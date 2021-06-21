@@ -41,14 +41,14 @@
 \date{26 мая 2021 г.}
 \institute[МФТИ(НИУ)]{Московский физико-технический институт \\ (национальный исследовательский университет) \\
     Физтех-школа Прикладной Математики и Информатики\\
-    Кафедра вычислительных технологий и моделирования в геофизике и биоматематике
+    Кафедра вычислительных технологий и моделирования \\ в геофизике и биоматематике
     \vspace{0.3cm} \\
     Научный руководитель А.\,С.\,Грицун (С.\,В.\,Кострыкин)
 }
 
 \date{
     \footnotesize
-    26 мая 2021 г.
+    1 июля 2021 г.
 }
 
 \begin{document}
@@ -204,8 +204,8 @@
 \begin{itemize}
     \item Эволюция сухого снега описывается уравнением\footnote{\scriptsize Flanner and Zender, 2006}:
     \footnotesize
-    \[ \dfrac{d}{dt} \delta r_{e , dry} = {\left( \dfrac{dr_{e , dry}}{dt} \right)}_0 \left(\dfrac{\eta}{\eta + (r_e - r_{e, 0})}\right)^{1 / \kappa} \]
-    ${\left( \dfrac{dr_{e , dry}}{dt} \right)}_0$, $\eta$, $\kappa$ -- табличные параметры, зависящие от $T$, $\dfrac{dT}{dz}$, $\rho_{snow}$
+    \[ \dfrac{d}{dt} \delta r_{e , dry} = \gamma \cdot \left(\dfrac{\eta}{\eta + (r_e - r_{e, 0})}\right)^{1 / \kappa} \]
+    $\gamma$, $\eta$, $\kappa$ -- табличные параметры, зависящие от $T$, $\dfrac{dT}{dz}$, $\rho_{snow}$
 
     \item Эволюция мокрого снега описывается эмпирическим законом\footnote{\scriptsize Brun, 1989}:
     \footnotesize
@@ -223,7 +223,7 @@
 
 Объединяя уравнения для эволюции сухого и мокрого снега, получаем задачу Коши для суммарного вклада в метаморфизм из-за старения снега:
     \[ \begin{cases}
-        \dfrac{d}{dt} \delta (r_{e , dry} + r_{e , wet}) = {\left( \dfrac{dr_{e , dry}}{dt} \right)}_0 \left(\dfrac{\eta}{\eta + (r_e - r_{e, 0})}\right)^{1 / \kappa} + \dfrac{C \cdot f_{liq}^3} {4 \pi r_{e}^2} ,
+        \dfrac{d}{dt} \delta (r_{e , dry} + r_{e , wet}) = \gamma \cdot \left(\dfrac{\eta}{\eta + (r_e - r_{e, 0})}\right)^{1 / \kappa} + \dfrac{C \cdot f_{liq}^3} {4 \pi r_{e}^2} ,
         \\
         \delta (r_{e , dry} + r_{e , wet})(t_0) = 0; 
     \end{cases} \]
@@ -318,11 +318,11 @@
 \scriptsize
 \begin{figure}[h]
     \begin{minipage}[h]{0.48\linewidth}
-        \center{\includegraphics[width=1.1\linewidth]{Snow_Mass_R.png} \\ (а) }
+        \center{\includegraphics[width=1.1\linewidth]{snow_mass.png} \\ (а) }
     \end{minipage}
     \hfill
     \begin{minipage}[h]{0.51\linewidth}
-        \center{\includegraphics[width=1.1\linewidth]{Snow_area_R.png} \\ (б) }
+        \center{\includegraphics[width=1.1\linewidth]{snow_square.png} \\ (б) }
     \end{minipage}
 \end{figure}
 \center{Годовой ход (а) массы снега и (б) площади, покрытой им, осредненные за 1997-2002 годы по данным исходной и модифицированной версий модели, и по данным реанализа CAMS за 2003--2019 годы}
@@ -367,14 +367,12 @@
 %\scriptsize
 \tiny
 \begin{figure}[h]
-    \begin{minipage}[h]{0.5\linewidth}
-    \\
-    ~\\
-    \\
-        \center{\includegraphics[width=1\linewidth]{Snow_albedo_03_1997_cat.png} \\ Среднемесячное широкополосное альбедо заснеженной поверхности, рассчитанное с помощью построенной модели альбедо \\ (март 1997 г.)}
+    \begin{minipage}[h]{0.63\linewidth}
+        \center{\includegraphics[width=1\linewidth]{Snow_albedo_03_1997.png} Среднемесячное широкополосное альбедо заснеженной поверхности, рассчитанное с помощью построенной модели альбедо (март 1997 г.) \\~}
     \end{minipage}
-    \begin{minipage}[h]{0.49\linewidth}
-        \center{\includegraphics[width=1\linewidth]{Snow_albedo_reanalyses_03_ave.png} \\ Альбедо снега по данным реанализа CAMS, осредненное за 2003--2019 годы \\ (месяц -- март)}
+    \\~
+    \begin{minipage}[h]{0.63\linewidth}
+        \center{\includegraphics[width=1\linewidth]{delta_snow_albedo_03.png} Разность альбедо по данным реанализа CAMS и рассчитанного с помощью построенной модели (месяц март)}
     \end{minipage}
 \end{figure}
 
